@@ -1,33 +1,33 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import * as songActions from '../../actions/songActions';
+import {bindActionCreators} from 'redux';
+import SongList from './SongList';
+
 class SongsPage extends React.Component {
-  constructor(props, context){
-    super(props, context);
-    this.onTitleChange = this.onTitleChange.bind(this);
-    this.onClickSave = this.onClickSave.bind(this);
-    this.state = {
-      song: { title: "" }
-    };
-  }
-  onTitleChange(event){
-    const song =  this.state.song;
-    song.title = event.target.value;
-    this.setState({song: song});
-  }
-  onClickSave(){
-    alert(this.state.song.title);
-  }
 
 
   render(){
+    const {songs} = this.props;
+    debugger
     return(
       <div>
         <h1>Songs</h1>
-        <h2>Add Song</h2>
-        <input type="text" onChange={this.onTitleChange} value={this.state.song.title}/>
-        <input type="submit" value="save" onClick={this.onClickSave}/>
+        <SongList songs = {songs}/>
       </div>
     );
   }
 }
 
-export default SongsPage;
+function mapStateToProps(state, ownProps){
+  return{
+    songs: state.songs
+  }
+}
+function mapDispatchToProps(dispatch){
+  return{
+    actions: bindActionCreators(songActions, dispatch)
+  }
+
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SongsPage);

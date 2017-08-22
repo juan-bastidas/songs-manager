@@ -3,9 +3,9 @@ import React from 'react';
 class HomePage extends React.Component{
   render(){
     return(
-      <div>
+      <div className="jumbotron">
         <h1>This is the Home page.</h1>
-        <p>here goes some homepage description...</p>
+        <p>This is just a demo app to mange songs and artits...</p>
       </div>
     );
   }
