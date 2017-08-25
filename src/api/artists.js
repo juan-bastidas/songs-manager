@@ -2,18 +2,21 @@ const artists = [
   {
     id: 1,
     name: 'Michael Jackson',
-    group: false
+    country: 'USA',
+    year: '1980'
 
   },
   {
     id: 2,
     name: 'Cold play',
-    group: true
+    country: 'England',
+    year: '1996'
   },
   {
     id: 3,
     name: 'Muse',
-    group: true
+    country: 'England',
+    year: '2000'
   }
 ];
 

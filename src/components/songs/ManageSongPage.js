@@ -15,7 +15,7 @@ export class ManageSongPage extends React.Component {
     this.saveSong = this.saveSong.bind(this);
   }
 
-  updateSongState(event) {
+updateSongState(event) {
   const field = event.target.name;
   let song = this.state.song;
   song[field] = event.target.value;
@@ -29,7 +29,6 @@ export class ManageSongPage extends React.Component {
   }
 
   render() {
-
     return (
       <SongForm
         allArtists={this.props.artists}
@@ -58,8 +57,7 @@ function getSongById(songs, id) {
 
 function mapStateToProps(state, ownProps) {
    let songId = ownProps.location.pathname.split("/")[2];
-
-   let song = { id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
+   let song = { id: '',  title: '', year: '', length: '', category: ''};
 
    if (songId && state.songs.length > 0) {
      song = getSongById(state.songs, songId);

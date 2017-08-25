@@ -5,11 +5,11 @@ export function loadSongsSuccess(songs){
   return {type: types.LOAD_SONGS_SUCCESS, songs}
 }
 
-export function updateCourseSuccess(song) {
+export function updateSongSuccess(song) {
   return { type: types.UPDATE_SONG_SUCCESS, song };
 }
 
-export function createCourseSuccess(song) {
+export function createSongSuccess(song) {
   return { type: types.CREATE_SONG_SUCCESS, song };
 }
 
@@ -24,6 +24,6 @@ export function loadSongs(){
 }
 
 export function saveSong(song, dispatch) {
-    return  song.id ? updateCourseSuccess(song) :
-      createCourseSuccess(song);
+    return  song.id ? updateSongSuccess(song) :
+      createSongSuccess(song);
 }

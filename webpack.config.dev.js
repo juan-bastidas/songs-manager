@@ -1,6 +1,8 @@
 import webpack from 'webpack';
 import path from 'path';
 
+//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 export default {
   debug: true,
   devtool: 'source-map',
@@ -22,6 +24,8 @@ export default {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
+    //  ,
+    //new BundleAnalyzerPlugin()
   ],
   module: {
     loaders: [
