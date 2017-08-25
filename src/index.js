@@ -3,8 +3,7 @@ import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App';
-import routes from './routes';
-import {Router, browserHistory} from 'react-router';
+import {BrowserRouter as Router} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import './styles/styles.css';
 import configureStore from './store/configureStore';
@@ -19,7 +18,9 @@ store.dispatch(loadArtists());
 
 render(
   <Provider store = {store}>
-    <Router history={browserHistory} routes = {routes} />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('app')
 );

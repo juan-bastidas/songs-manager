@@ -5,8 +5,8 @@ import * as songActions from '../../actions/songActions';
 import SongForm from './SongForm';
 
 export class ManageSongPage extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
       song: Object.assign({}, this.props.song),
       errors: {}
@@ -25,10 +25,11 @@ export class ManageSongPage extends React.Component {
     event.preventDefault();
     debugger
     this.props.actions.saveSong(this.state.song);
-    this.context.router.push('/songs');
+    this.props.history.push('/songs/');
   }
 
   render() {
+
     return (
       <SongForm
         allArtists={this.props.artists}
@@ -56,7 +57,7 @@ function getSongById(songs, id) {
 }
 
 function mapStateToProps(state, ownProps) {
-   let songId = ownProps.params.id;
+   let songId = ownProps.location.pathname.split("/")[2];
 
    let song = { id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
 

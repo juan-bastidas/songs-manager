@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import * as songActions from '../../actions/songActions';
 import {bindActionCreators} from 'redux';
 import SongList from './SongList';
-import {browserHistory} from 'react-router';
 import TextInput from '../common/TextInput';
 
 class SongsPage extends React.Component {
@@ -17,7 +16,7 @@ class SongsPage extends React.Component {
    }
 
   redirectToAddSongPage() {
-    browserHistory.push('/song');
+    this.props.history.push('/song/');
   }
 
   deleteSong(song) {

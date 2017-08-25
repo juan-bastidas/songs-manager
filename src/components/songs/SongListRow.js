@@ -1,12 +1,17 @@
 import React, {PropTypes} from 'react';
-import {Link} from 'react-router';
-import {browserHistory} from 'react-router';
+import { Redirect } from 'react-router-dom';
+import {withRouter} from "react-router-dom";
 
 
   const SongListRow = (props) => {
 
   function handleClickDelete(event){
     props.onDelete(props.song)
+  }
+
+  function handleClickEdit(event){
+    debugger
+      props.history.push('/song/' + props.song.id)
   }
 
   return(
@@ -16,7 +21,7 @@ import {browserHistory} from 'react-router';
       <td>{props.song.genre}</td>
       <td>{props.song.length}</td>
       <td>
-          <button type="button" className="btn btn-default btn-sm" onClick={() => browserHistory.push('/song/'+ props.song.id)}>
+          <button type="button" className="btn btn-default btn-sm" onClick={handleClickEdit}>
           <span className="glyphicon glyphicon-edit"></span>
           </button>
           {" "}
@@ -29,4 +34,4 @@ import {browserHistory} from 'react-router';
   );
 }
 
-export default SongListRow;
+export default withRouter(SongListRow);

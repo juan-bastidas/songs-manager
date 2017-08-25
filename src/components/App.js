@@ -1,5 +1,9 @@
 import React, {PropTypes} from 'react';
 import Header from './common/Header';
+import {Route} from 'react-router-dom';
+import SongsPage from './songs/SongsPage';
+import HomePage from './home/HomePage';
+import ManageSongPage from './songs/ManageSongPage';
 
 
 class App extends React.Component{
@@ -7,7 +11,10 @@ class App extends React.Component{
     return(
       <div className="container-fluid">
         <Header/>
-        {this.props.children}
+        <Route exact path='/' component = {HomePage}/>
+        <Route exact path="/songs" component = {SongsPage}/>
+        <Route exact path="/song" component = {ManageSongPage}/>
+        <Route exact path="/song/:id" component = {ManageSongPage}/>
       </div>
     );
   }
