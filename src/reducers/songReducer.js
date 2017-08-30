@@ -6,17 +6,16 @@ export default function SongReducer(state=[], action){
     case types.CREATE_SONG_SUCCESS:
       return [
        ...state,
-       Object.assign({}, action.song, {id: state.length+1})
+       Object.assign({}, action.song)
       ];
     case types.UPDATE_SONG_SUCCESS:
     return [
-      ...state.filter(song => song.id !== action.song.id),
+      ...state.filter(song => song.Id !== action.song.Id),
       Object.assign({}, action.song)
     ];
-    case types.DELETE_SONG:
-    debugger
+    case types.DELETE_SONG_SUCCESS:
     return [
-      ...state.filter(song => song.id !== action.song.id)
+      ...state.filter(song => song.Id !== action.song.Id)
     ];
     default:
       return state;

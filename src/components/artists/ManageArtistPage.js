@@ -23,7 +23,6 @@ updateArtistState(event) {
  }
  saveArtist(event) {
     event.preventDefault();
-    debugger
     this.props.actions.saveArtist(this.state.artist);
     this.props.history.push('/artists/');
   }
@@ -50,29 +49,21 @@ ManageArtistPage.contextTypes = {
 };
 
 function getArtistById(artists, id) {
-  const artist = artists.filter(artist => artist.id == id);
+  const artist = artists.filter(artist => artist.Id == id);
   if (artist) return artist[0];
   return null;
 }
 
 function mapStateToProps(state, ownProps) {
    let artistId = ownProps.location.pathname.split("/")[2];
-   let artist = { id: '', name: '', country: '', year: ''};
+   let artist = { Name: '', Country: '', Year: ''};
 
    if (artistId && state.artists.length > 0) {
      artist = getArtistById(state.artists, artistId);
    }
 
-   const artitsFormatterForDropdown = state.artists.map(artist => {
-     return {
-       value: artist.id,
-       text : artist.name
-     }
-   })
-
   return {
-    artist: artist,
-    artists: artitsFormatterForDropdown
+    artist: artist
   };
 }
 

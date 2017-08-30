@@ -6,25 +6,25 @@ const ArtistForm = ({ artist, onSave, onChange, saving, errors }) => {
     <form>
       <h1>Manage Artists</h1>
       <TextInput
-        name="name"
+        name="Name"
         label="Name"
-        value={artist.name}
+        value={artist.Name}
         onChange={onChange}
-        error={errors.name} />
+        error={errors.Name} />
 
       <TextInput
-        name="country"
+        name="Country"
         label="Country"
-        value={artist.country}
+        value={artist.Country}
         onChange={onChange}
-        error={errors.country} />
+        error={errors.Country} />
 
       <TextInput
-        name="year"
+        name="Year"
         label="Year"
-        value={artist.year}
+        value={artist.Year}
         onChange={onChange}
-        error={errors.geyearnre} />
+        error={errors.Year} />
 
       <input
         type="submit"

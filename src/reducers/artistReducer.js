@@ -6,17 +6,16 @@ export default function ArtistReducer(state=[], action){
       case types.CREATE_ARTIST_SUCCESS:
         return [
          ...state,
-         Object.assign({}, action.artist, {id: state.length+1})
+         Object.assign({}, action.artist)
         ];
       case types.UPDATE_ARTIST_SUCCESS:
       return [
-        ...state.filter(artist => artist.id !== action.artist.id),
+        ...state.filter(artist => artist.Id !== action.artist.Id),
         Object.assign({}, action.artist)
       ];
-      case types.DELETE_ARTIST:
-      debugger
+      case types.DELETE_ARTIST_SUCCESS:
       return [
-        ...state.filter(artist => artist.id !== action.artist.id)
+        ...state.filter(artist => artist.Id !== action.artist.Id)
       ];
       default:
         return state;

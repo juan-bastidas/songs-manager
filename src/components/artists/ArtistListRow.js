@@ -8,15 +8,14 @@ import { Redirect, withRouter } from 'react-router-dom';
   }
 
   function handleClickEdit(event){
-    debugger
-      props.history.push('/artist/' + props.artist.id)
+      props.history.push('/artist/' + props.artist.Id)
   }
 
   return(
     <tr>
-      <td>{props.artist.name}</td>
-      <td>{props.artist.country}</td>
-      <td>{props.artist.year}</td>
+      <td>{props.artist.Name}</td>
+      <td>{props.artist.Country}</td>
+      <td>{props.artist.Year}</td>
       <td>
           <button type="button" className="btn btn-default btn-sm" onClick={handleClickEdit}>
           <span className="glyphicon glyphicon-edit"></span>

@@ -28,11 +28,12 @@ class SongsPage extends React.Component {
   }
 
   filterSongs(songs){
+    
     let lFilter = this.state.filter.toLowerCase()
-    return songs.filter((song) => song.title.toLowerCase().includes(lFilter)||
-    song.genre.toLowerCase().includes(lFilter)||
-    song.year.toString().includes(lFilter)||
-    song.length.toLowerCase().includes(lFilter)||
+    return songs.filter((song) => song.Title.toLowerCase().includes(lFilter)||
+    song.Genre.toLowerCase().includes(lFilter)||
+    song.Year.toString().includes(lFilter)||
+    song.Length.toLowerCase().includes(lFilter)||
     this.state.filter.trim() =='');
   }
 

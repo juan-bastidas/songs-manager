@@ -7,41 +7,41 @@ const SongForm = ({ song, allArtists, onSave, onChange, saving, errors }) => {
     <form>
       <h1>Manage Song</h1>
       <TextInput
-        name="title"
+        name="Title"
         label="Title"
-        value={song.title}
+        value={song.Title}
         onChange={onChange}
-        error={errors.title} />
+        error={errors.Title} />
 
       <SelectInput
-        name="artistId"
+        name="ArtistId"
         label="Artist"
-        value={song.artistId}
+        value={song.ArtistId}
         defaultOption="Select Artist"
         options={allArtists}
         onChange={onChange}
         error={errors.artistId} />
 
       <TextInput
-        name="year"
+        name="Year"
         label="Year"
-        value={song.year}
+        value={song.Year}
         onChange={onChange}
         error={errors.year} />
 
       <TextInput
-        name="genre"
+        name="Genre"
         label="Genre"
-        value={song.genre}
+        value={song.Genre}
         onChange={onChange}
-        error={errors.genre} />
+        error={errors.Genre} />
 
       <TextInput
-        name="length"
+        name="Length"
         label="Length"
-        value={song.length}
+        value={song.Length}
         onChange={onChange}
-        error={errors.length} />
+        error={errors.Length} />
 
       <input
         type="submit"

@@ -29,9 +29,9 @@ class ArtistsPage extends React.Component {
 
   filterArtists(artists){
     let lFilter = this.state.filter.toLowerCase()
-    return artists.filter((artist) => artist.name.toLowerCase().includes(lFilter)||
-    artist.country.toLowerCase().includes(lFilter)||
-    artist.year.toString().includes(lFilter)||
+    return artists.filter((artist) => artist.Name.toLowerCase().includes(lFilter)||
+    artist.Country.toLowerCase().includes(lFilter)||
+    artist.Year.toString().includes(lFilter)||
     this.state.filter.trim() =='');
   }
 

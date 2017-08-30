@@ -23,7 +23,6 @@ updateSongState(event) {
  }
  saveSong(event) {
     event.preventDefault();
-    debugger
     this.props.actions.saveSong(this.state.song);
     this.props.history.push('/songs/');
   }
@@ -50,23 +49,23 @@ ManageSongPage.contextTypes = {
 };
 
 function getSongById(songs, id) {
-  const song = songs.filter(song => song.id == id);
+  const song = songs.filter(song => song.Id == id);
   if (song) return song[0];
   return null;
 }
 
 function mapStateToProps(state, ownProps) {
    let songId = ownProps.location.pathname.split("/")[2];
-   let song = { id: '',  title: '', year: '', length: '', category: ''};
-
+   let song = { Title: '', Year: '', Length: '', Category: ''};
+debugger
    if (songId && state.songs.length > 0) {
      song = getSongById(state.songs, songId);
    }
 
    const artitsFormatterForDropdown = state.artists.map(artist => {
      return {
-       value: artist.id,
-       text : artist.name
+       value: artist.Id,
+       text : artist.Name
      }
    })
 

@@ -13,7 +13,7 @@ const ArtistList = (props) => {
       </tr>
       </thead>
       <tbody>
-        {props.artists.map(artist => <ArtistListRow key = {artist.id} artist = {artist} onDelete = {props.onDelete}/>)}
+        {props.artists.map(artist => <ArtistListRow key = {artist.Id} artist = {artist} onDelete = {props.onDelete}/>)}
       </tbody>
     </table>
   );

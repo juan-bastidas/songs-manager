@@ -11,15 +11,15 @@ import {withRouter} from "react-router-dom";
 
   function handleClickEdit(event){
     debugger
-      props.history.push('/song/' + props.song.id)
+      props.history.push('/song/' + props.song.Id)
   }
 
   return(
     <tr>
-      <td>{props.song.title}</td>
-      <td>{props.song.year}</td>
-      <td>{props.song.genre}</td>
-      <td>{props.song.length}</td>
+      <td>{props.song.Title}</td>
+      <td>{props.song.Year}</td>
+      <td>{props.song.Genre}</td>
+      <td>{props.song.Length}</td>
       <td>
           <button type="button" className="btn btn-default btn-sm" onClick={handleClickEdit}>
           <span className="glyphicon glyphicon-edit"></span>

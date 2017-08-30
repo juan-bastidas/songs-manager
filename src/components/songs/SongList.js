@@ -14,7 +14,7 @@ const SongList = (props) => {
       </tr>
       </thead>
       <tbody>
-        {props.songs.map(song => <SongListRow key = {song.id} song = {song} onDelete = {props.onDelete}/>)}
+        {props.songs.map(song => <SongListRow key = {song.Id} song = {song} onDelete = {props.onDelete}/>)}
       </tbody>
     </table>
   );
