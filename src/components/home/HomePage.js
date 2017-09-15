@@ -1,3 +1,4 @@
+/*Los componentes de react mejor manejarlos con extension jsx*/
 import React from 'react';
 
 class HomePage extends React.Component{
