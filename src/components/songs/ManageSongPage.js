@@ -4,6 +4,13 @@ import { connect } from 'react-redux';
 import * as songActions from '../../actions/songActions';
 import SongForm from './SongForm';
 
+/*
+Casi que esto es igual que para los artistas, ud podria en vez de haber repetido usar un componente grilla que se encargue 
+de paginar, filtrar, ya sea via cliente o API.
+La grilla puede recibir el metadata para las columnas, la data, los API endponits, etc.
+Hay varias por ahi en internet.
+*/
+
 export class ManageSongPage extends React.Component {
   constructor(props) {
     super(props);
@@ -55,13 +62,21 @@ function getSongById(songs, id) {
 }
 
 function mapStateToProps(state, ownProps) {
+  /*
+  No lo haga con el location, es mas simple que esto y mas limpio:
+  
+  songId: ownProps.params.id, // Depende de como ke haya puesto en el route
+  */
    let songId = ownProps.location.pathname.split("/")[2];
    let song = { Title: '', Year: '', Length: '', Category: ''};
-debugger
+  /*REMOVER :)*/
+  debugger
    if (songId && state.songs.length > 0) {
+     //Deberia ser desde el API y no cliente, depende del caso
      song = getSongById(state.songs, songId);
    }
 
+   //Esto mas mas para el render, no es puro de props, es solo formato de data
    const artitsFormatterForDropdown = state.artists.map(artist => {
      return {
        value: artist.Id,
@@ -80,5 +95,26 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(songActions, dispatch)
   };
 }
+
+/*
+Puede cambiar esto y deshacerse del mapDispatchToProps:
+
+import { loadSongs, saveSong, ..... } from '../../actions/songActions';
+
+export default connect(
+    mapStateToProps, {
+        loadSongs,
+        saveSong,
+        :,
+        :,
+    }
+)(ManageSongPage);
+
+Y luego usarlas asi:
+
+this.props.loadSongs(....);
+this.props.saveSong(....);
+
+*/
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageSongPage);
