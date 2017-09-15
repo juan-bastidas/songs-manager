@@ -27,6 +27,7 @@ class ArtistsPage extends React.Component {
       this.setState({filter: event.target.value})
   }
 
+  /*El filtro deberia ser via API */
   filterArtists(artists){
     let lFilter = this.state.filter.toLowerCase()
     return artists.filter((artist) => artist.Name.toLowerCase().includes(lFilter)||
