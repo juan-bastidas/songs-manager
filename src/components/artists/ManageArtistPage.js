@@ -8,9 +8,24 @@ export class ManageArtistPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      /*
+      No use assign:
+      
+      artist = { ...this.props.artist };
+      */
       artist: Object.assign({}, this.props.artist),
       errors: {}
     };
+    //Con ES6 estas 2 lineas sobran, solo vuelva esta 2 funcion arrow functions:
+    /*
+    updateArtistState = (event) => {
+      :
+      :
+     }
+    
+    */
+    
+    
     this.updateArtistState = this.updateArtistState.bind(this);
     this.saveArtist = this.saveArtist.bind(this);
   }
