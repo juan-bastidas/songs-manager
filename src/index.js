@@ -12,10 +12,18 @@ import {loadArtists} from './actions/artistActions';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/toastr/build/toastr.min.css';
 
+/*
+Normalmente cada componente debe llanar sus acciones y no el index, tampoco usaria dispatch para esto esta el tema de 
+connect en los componentes
+*/
+
 let store = configureStore();
 store.dispatch(loadSongs());
 store.dispatch(loadArtists());
 
+/*
+No veo el tema de los dynamic imports
+*/
 render(
   <Provider store = {store}>
     <Router>
